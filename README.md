@@ -6,7 +6,7 @@
 
 ## Overview
 
-### The challenge
+### Functionality
 
 Users able to:
 
