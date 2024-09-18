@@ -4,6 +4,9 @@
 
 ** ** 🚀
 
+## How to run
+- npm run start
+
 ## Overview
 
 ### Functionality

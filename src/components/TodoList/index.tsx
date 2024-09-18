@@ -2,6 +2,7 @@ import { FC } from "react";
 import { TodoItemList } from "../../types";
 import TodoItem from "../TodoItem";
 import * as S from "./styles"
+import ItemList from "../../fragments/ItemList";
 
 interface TodoListProps {
   items: TodoItemList,
@@ -19,7 +20,7 @@ const TodoList: FC<TodoListProps> = ({
   return (
     <S.Wrapper>
       <TodoItem editable onCreate={createItemEv}/>
-      <S.TodoItemWrapper>
+          <S.TodoItemsWrapper>
           {
             items.map(item => <TodoItem 
                 value={item.value}
@@ -28,7 +29,13 @@ const TodoList: FC<TodoListProps> = ({
                 onDelete={() => deleteItemEv(item.id)}
             />)
           }
-      </S.TodoItemWrapper>
+
+
+        </S.TodoItemsWrapper>
+        
+        <ItemList height="50px">
+          
+        </ItemList>
         
     </S.Wrapper>
   );

@@ -54,7 +54,7 @@ export const lightTheme : ITheme = {
 export const GlobalStyles = createGlobalStyle`
    body {
       margin: 0;
-      height: 100%;
+      height: 100vh;
       background-color: ${props => props.theme.colors.background_primary};
     }
     div#root {
@@ -68,7 +68,27 @@ export const GlobalStyles = createGlobalStyle`
       font-optical-sizing: auto;
       font-weight: 400;
       font-style: normal;
-      color: ${({theme}) => theme.colors.text_primary}
+      color: ${({theme}) => theme.colors.text_primary};
+
+      ::-webkit-scrollbar-track
+      {
+          -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+          border-radius: 10px;
+          background-color: ${({theme}) => theme.colors.background_primary};
+      }
+
+      ::-webkit-scrollbar
+      {
+          width: 8px;
+          background-color: ${({theme}) => theme.colors.background_primary};
+      }
+
+      ::-webkit-scrollbar-thumb
+      {
+          border-radius: 10px;
+          -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,.3);
+          background-color: ${({theme}) => theme.colors.light_grayish_blue};
+      }
     }
 `
 

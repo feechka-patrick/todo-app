@@ -7,20 +7,12 @@ export const Wrapper = styled.div`
     align-items: center;
     flex-direction: column;
     gap: 32px;
-    
-    /* >div {
-        border-bottom: 1px solid ${({theme}) => theme.colors.light_grayish_blue};
-        border-bottom-left-radius: 0;
-        border-bottom-right-radius: 0;
-    };
-
-    &:last-child {
-        border: none;
-        border-radius: 4px;
-    } */
+    padding-bottom: 16px;
 `
-export const TodoItemWrapper = styled.div`
+export const TodoItemsWrapper = styled.div`
     width: 100%;
+    max-height: 240px;
+    overflow-y: auto;
     border-radius: 4px; 
     box-shadow: ${({theme}) => theme.box_shadow};
 
