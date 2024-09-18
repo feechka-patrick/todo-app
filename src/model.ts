@@ -18,7 +18,7 @@ sample({
 export const $todoList = createStore<TodoItemList>(todoListMock);
 
 export const todoListApi = createApi($todoList, {
-    deleteItemEv: (list, id: string) => list.filter(i => i.id !== id),
+    deleteItemEv: (list, id: string) => list.filter(item => item.id !== id),
     createItemEv: (list, value: string) => [ {
         value: value,
         id: value,
@@ -30,11 +30,13 @@ export const todoListApi = createApi($todoList, {
              ...item, 
              status: item.status === 'active' ? 'done' : 'active'
         } : item
-    )
+    ),
+    clearCompletedEv: (list) => list.filter(item => item.status ==='active')
 })
 
 export interface TodoListApiI {
     deleteItemEv: EventCallable<string>;
     createItemEv: EventCallable<string>;
     changedStatusEv: EventCallable<string>;
+    clearCompletedEv: EventCallable<{}>;
 }

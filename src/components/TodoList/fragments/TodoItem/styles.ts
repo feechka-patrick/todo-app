@@ -1,5 +1,5 @@
 import { styled } from "styled-components";
-import { icons } from "../../assets/icons";
+import { icons } from "../../../../assets/icons";
 
 
 export const Wrapper = styled.div(({theme}) =>`
@@ -24,6 +24,7 @@ export const InputField = styled.input(({checked, theme}) =>`
     width: 100%;
     cursor: pointer;
     font-size: medium;
+    font-weight: 350;
     color: ${checked ? theme.colors.light_grayish_blue : 'inherit'};
     
     text-decoration: ${checked ? 'line-through' : 'none'};

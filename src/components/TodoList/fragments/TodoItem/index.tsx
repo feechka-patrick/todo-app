@@ -1,8 +1,8 @@
 import { FC, useCallback, useMemo, useState } from 'react';
 import * as S from './styles'
-import Icon from '../../assets/icons';
+import Icon from '../../../../assets/icons';
 import { useHover } from '@uidotdev/usehooks';
-import ItemList from '../../fragments/ItemList';
+import ItemList from '../../../../fragments/ItemList';
 
 interface TodoItemProps {
     editable?: boolean;
