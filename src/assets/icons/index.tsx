@@ -14,7 +14,7 @@ export const icons = {
     sun: sun,
 }
 
-const Image = styled.img`
+const IconStyle = styled.img`
   
   
     &:hover {
@@ -30,7 +30,7 @@ interface IconProps extends ImgHTMLAttributes<HTMLImageElement> {
 
 const Icon: FC<IconProps> = ({src, ...props}) => {
   return (
-    <Image src={icons[src]} {...props}/>
+    <IconStyle src={icons[src]} {...props}/>
   );
 };
 

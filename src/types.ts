@@ -1,6 +1,6 @@
 
 export type ThemeMode = 'light' | 'dark';
-type TodoStatus = 'done' | 'active';
+type TodoStatus = 'completed' | 'active';
 
 interface TodoItem {
     id: string,
@@ -9,3 +9,5 @@ interface TodoItem {
 }
 
 export type TodoItemList = TodoItem[]
+
+export type FilterMode = 'all' | 'active' | 'completed'

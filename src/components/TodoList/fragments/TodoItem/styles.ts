@@ -2,20 +2,6 @@ import { styled } from "styled-components";
 import { icons } from "../../../../assets/icons";
 
 
-export const Wrapper = styled.div(({theme}) =>`
-        height: 60px;
-        width: 100%;
-        border-radius: 4px;
-        background-color: ${theme.colors.background_secondary};
-        
-        display: flex;
-        padding: 8px 16px;
-        gap: 16px;
-        box-shadow: ${theme.box_shadow};
-        align-items: center;
-    `
-)
-
 export const InputField = styled.input(({checked, theme}) =>`
     display: flex;
     background-color: inherit;

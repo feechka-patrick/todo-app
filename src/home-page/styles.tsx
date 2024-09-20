@@ -14,5 +14,5 @@ export const ContentWrapper = styled.div`
     align-self: center;
 
     position: absolute;
-    top: 30%;
+    top: 15%;
 `

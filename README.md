@@ -18,11 +18,11 @@ Users able to:
 - Mark todos as complete
 - Delete todos from the list
 - Toggle light and dark mode
+- Filter by all/active/complete todos
+- Clear all completed todos
 
 --- In developing:
 - View the optimal layout for the app depending on their device's screen size
-- Filter by all/active/complete todos
-- Clear all completed todos
 - Drag and drop to reorder items on the list
 
 ### Built with

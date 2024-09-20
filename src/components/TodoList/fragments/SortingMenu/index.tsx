@@ -1,28 +1,21 @@
-import { useState } from "react";
-import { TodoItemList } from "../../../../types";
+
+import { FilterMode, TodoItemList } from "../../../../types";
 import * as S from './styles'
 
 interface SortingMenuProps {
-    filteredItems: TodoItemList,
-    onAllFiltered: () => void,
-    onActiveFiltered: () => void,
-    onCompletedFiltered: () => void,
+    setActiveFilterModeEv: (filterMode: FilterMode) => void,
+    filterMode: FilterMode,
     clearCompletedEv: () => void,
-    activeItemsLength: number,
+    activeItemsLength: number
 }
 
 const SortingMenu = ({
-    filteredItems,
-    onAllFiltered,
-    onActiveFiltered,
-    onCompletedFiltered,
+    filterMode,
+    setActiveFilterModeEv,
     clearCompletedEv,
     activeItemsLength
 }: SortingMenuProps) => {
-    const [activeFilter, setActiveFilter] = 
-        useState<'all' | 'active' | 'completed'>('all');
 
-    
 
   return (
     <S.SortingMenuWrapper>
@@ -31,16 +24,16 @@ const SortingMenu = ({
         </S.SortingMenuCounter>
 
         <S.SortingMenuTabs>
-            <S.Tab active={activeFilter === 'all'}
-                    onClick={() => setActiveFilter('all')}>
+            <S.Tab active={filterMode === 'all'}
+                    onClick={() => setActiveFilterModeEv('all')}>
                     All
             </S.Tab>
-            <S.Tab active={activeFilter === 'active'}
-                    onClick={() => setActiveFilter('active')}>
+            <S.Tab active={filterMode === 'active'}
+                    onClick={() => setActiveFilterModeEv('active')}>
                     Active
             </S.Tab>
-            <S.Tab active={activeFilter === 'completed'}
-                    onClick={() => setActiveFilter('completed')}>
+            <S.Tab active={filterMode === 'completed'}
+                    onClick={() => setActiveFilterModeEv('completed')}>
                     Completed
             </S.Tab>
         </S.SortingMenuTabs>

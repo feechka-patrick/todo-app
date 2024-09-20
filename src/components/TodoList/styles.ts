@@ -11,7 +11,7 @@ export const Wrapper = styled.div`
 `
 export const TodoItemsWrapper = styled.div`
     width: 100%;
-    max-height: 240px;
+    max-height: calc(100vh - 300px);
     overflow-y: auto;
     border-radius: 4px; 
     box-shadow: ${({theme}) => theme.box_shadow};
@@ -33,4 +33,12 @@ export const TodoItemsWrapper = styled.div`
         border: none;
     }
 
+`
+
+export const MessageWrapper = styled.div`
+    padding: 20px;
+    display: flex;
+    justify-self: center;
+    align-self: center;
+    color: aqua;
 `

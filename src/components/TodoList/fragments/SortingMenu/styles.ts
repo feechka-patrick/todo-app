@@ -30,7 +30,7 @@ export const Tab = styled.button<{active?: boolean}>(({active, theme}) => `
     font-size: 100%;
     border: 0;
     background: none;
-    font-weight: inherit;
+    font-weight: ${active ? 400: 'inherit'};;
     color: ${active ? theme.colors.bright_blue: 'inherit'};
     cursor: pointer;
 

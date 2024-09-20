@@ -80,6 +80,7 @@ export const GlobalStyles = createGlobalStyle`
       ::-webkit-scrollbar
       {
           width: 8px;
+          border-radius: 10px;
           background-color: ${({theme}) => theme.colors.background_primary};
       }
 

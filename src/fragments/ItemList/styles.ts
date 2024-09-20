@@ -2,7 +2,7 @@ import { styled } from "styled-components";
 
 
 export const Wrapper = styled.div<{height?: string}>(({theme, height}) =>`
-        height: ${height? height: '60px'};
+        height: ${height? height: '50px'};
         width: 100%;
         border-radius: 4px;
         background-color: ${theme.colors.background_secondary};

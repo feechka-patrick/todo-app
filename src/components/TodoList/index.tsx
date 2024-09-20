@@ -1,60 +1,57 @@
-import { FC, useCallback, useState } from "react";
-import { TodoItemList } from "../../types";
+import { FC } from "react";
+import { FilterMode, TodoItemList } from "../../types";
 import TodoItem from "./fragments/TodoItem";
 import * as S from "./styles"
 import ItemList from "../../fragments/ItemList";
 import SortingMenu from "./fragments/SortingMenu";
+import Image from "./../../assets/images"
 
 interface TodoListProps {
-  items: TodoItemList,
+  filteredItems: TodoItemList,
   deleteItemEv: (id: string) => void,
   createItemEv: (value: string) => void,
   changedStatusEv: (id: string) => void,
-  clearCompletedEv: () => void
+  clearCompletedEv: () => void,
+  setActiveFilterModeEv: (filterMode: FilterMode) => void,
+  filterMode: FilterMode,
+  activeItemsLength: number,
 }
 
 const TodoList: FC<TodoListProps> = ({
-  items,
+  filteredItems,
   deleteItemEv,
   createItemEv,
   changedStatusEv,
-  clearCompletedEv
+  clearCompletedEv,
+  setActiveFilterModeEv,
+  filterMode,
+  activeItemsLength
 }) => {
-  const [filteredItems, setFilteredItems] = useState(items);
-
-  const onAllFiltered = () => setFilteredItems(items)
-  const onActiveFiltered =() => setFilteredItems(items.filter(
-    item => item.status === 'active'
-  ))
-  const onCompletedFiltered =() => setFilteredItems(items.filter(
-    item => item.status === 'done'
-  ))
-
-  const activeItemsLength = items.reduce(
-    (len, item) => item.status === 'active' ? len += 1: len, 0)
+  
 
   return (
     <S.Wrapper>
       <TodoItem editable onCreate={createItemEv}/>
           <S.TodoItemsWrapper>
-          {
-            items.map(item => <TodoItem 
-                value={item.value}
-                checked={item.status === 'done'}
-                onChangedStatus ={() => changedStatusEv(item.id)}
-                onDelete={() => deleteItemEv(item.id)}
-            />)
-          }
-
+              { filteredItems.length > 0 ?
+                    filteredItems.map(item => <TodoItem 
+                        value={item.value}
+                        checked={item.status === 'completed'}
+                        onChangedStatus ={() => changedStatusEv(item.id)}
+                        onDelete={() => deleteItemEv(item.id)}
+                    />)
+                  :
+                  <S.MessageWrapper>
+                    Create a mew task or completed
+                  </S.MessageWrapper>
+              }
 
         </S.TodoItemsWrapper>
         
         <ItemList height="50px">
           <SortingMenu 
-              filteredItems={filteredItems}
-              onAllFiltered={onAllFiltered}
-              onActiveFiltered={onActiveFiltered}
-              onCompletedFiltered={onCompletedFiltered}
+              setActiveFilterModeEv = {setActiveFilterModeEv}
+              filterMode = {filterMode}
               clearCompletedEv={clearCompletedEv}
               activeItemsLength={activeItemsLength}          
           />
