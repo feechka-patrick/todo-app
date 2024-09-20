@@ -1,7 +1,8 @@
 import { FC, useCallback, useMemo, useState } from 'react';
 import * as S from './styles'
-import Icon from '../../assets/icons';
+import Icon from '../../../../assets/icons';
 import { useHover } from '@uidotdev/usehooks';
+import ItemList from '../../../../fragments/ItemList';
 
 interface TodoItemProps {
     editable?: boolean;
@@ -34,7 +35,7 @@ const TodoItem : FC<TodoItemProps> = ({
    }, [editValue, onCreate])
 
   return (
-    <S.Wrapper ref={ref}>
+    <ItemList ref={ref} >
       <S.CheckboxWrapper onClick={onChangedStatus}>
           <S.Checkbox type='checkbox' 
                 checked={checkedValue} />
@@ -64,7 +65,7 @@ const TodoItem : FC<TodoItemProps> = ({
       }
     
       
-    </S.Wrapper>
+    </ItemList>
   );
 };
 
