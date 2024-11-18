@@ -12,6 +12,9 @@ export const ContentWrapper = styled.div`
     display: flex;
     flex-direction: column;
     align-self: center;
+    @media (max-width: 600px) {
+        width: 80%
+    }
 
     position: absolute;
     top: 15%;
