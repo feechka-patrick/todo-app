@@ -1,32 +1,23 @@
 import { FC } from "react";
-import { FilterMode, TodoItemList } from "../../types";
 import TodoItem from "./fragments/TodoItem";
 import * as S from "./styles"
 import ItemList from "../../fragments/ItemList";
 import SortingMenu from "./fragments/SortingMenu";
-import Image from "./../../assets/images"
+import { useUnit } from "effector-react";
+import { $activeFilterMode, $filteredTodoList, $todoList, setActiveFilterModeEv, todoListApi } from '../../model';
 
-interface TodoListProps {
-  filteredItems: TodoItemList,
-  deleteItemEv: (id: string) => void,
-  createItemEv: (value: string) => void,
-  changedStatusEv: (id: string) => void,
-  clearCompletedEv: () => void,
-  setActiveFilterModeEv: (filterMode: FilterMode) => void,
-  filterMode: FilterMode,
-  activeItemsLength: number,
-}
 
-const TodoList: FC<TodoListProps> = ({
-  filteredItems,
-  deleteItemEv,
-  createItemEv,
-  changedStatusEv,
-  clearCompletedEv,
-  setActiveFilterModeEv,
-  filterMode,
-  activeItemsLength
-}) => {
+const TodoList: FC = () => {
+
+  const [ items, filteredItems, filterMode, setActiveFilterMode ] = 
+      useUnit([$todoList, $filteredTodoList, $activeFilterMode, 
+        setActiveFilterModeEv])
+
+  const {deleteItemEv, createItemEv, changedStatusEv, clearCompletedEv} 
+      = useUnit(todoListApi)
+
+  const activeItemsLength = items.reduce(
+  (len, item) => item.status === 'active' ? len += 1: len, 0)
   
 
   return (
@@ -50,7 +41,7 @@ const TodoList: FC<TodoListProps> = ({
         
         <ItemList height="50px">
           <SortingMenu 
-              setActiveFilterModeEv = {setActiveFilterModeEv}
+              setActiveFilterModeEv = {setActiveFilterMode}
               filterMode = {filterMode}
               clearCompletedEv={clearCompletedEv}
               activeItemsLength={activeItemsLength}          

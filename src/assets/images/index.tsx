@@ -1,5 +1,4 @@
 
-import { styled } from 'styled-components'
 import background_dark from './bg-desktop-dark.jpg'
 import background_light from './bg-desktop-light.jpg'
 import background_dark_mobile from './bg-mobile-dark.jpg'

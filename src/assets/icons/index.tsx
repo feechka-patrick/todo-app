@@ -15,8 +15,6 @@ export const icons = {
 }
 
 const IconStyle = styled.img`
-  
-  
     &:hover {
         cursor: pointer;
     } 
