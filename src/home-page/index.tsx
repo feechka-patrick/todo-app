@@ -2,8 +2,8 @@ import { useUnit } from 'effector-react';
 import Background from '../components/Background';
 import Header from '../components/Header';
 import TodoList from '../components/TodoList';
-import { changeThemeModeEv } from '../model';
 import * as S from './styles'
+import { changeThemeModeEv } from '../utils/store/theme';
 
 
 const Home = () => {

@@ -1,5 +1,5 @@
 
-import { FilterMode, TodoItemList } from "../../../../types";
+import { FilterMode, TodoItemList } from "../../../../utils/types";
 import * as S from './styles'
 
 interface SortingMenuProps {

@@ -4,7 +4,7 @@ import * as S from "./styles"
 import ItemList from "../../fragments/ItemList";
 import SortingMenu from "./fragments/SortingMenu";
 import { useUnit } from "effector-react";
-import { $activeFilterMode, $filteredTodoList, $todoList, setActiveFilterModeEv, todoListApi } from '../../model';
+import { $activeFilterMode, $filteredTodoList, $todoList, setActiveFilterModeEv, todoListApi } from '../../utils/store/todo-list';
 
 
 const TodoList: FC = () => {
@@ -13,18 +13,18 @@ const TodoList: FC = () => {
       useUnit([$todoList, $filteredTodoList, $activeFilterMode, 
         setActiveFilterModeEv])
 
-  const {deleteItemEv, createItemEv, changedStatusEv, clearCompletedEv} 
+  const { deleteItemEv, createItemEv, changedStatusEv, clearCompletedEv } 
       = useUnit(todoListApi)
 
   const activeItemsLength = items.reduce(
-  (len, item) => item.status === 'active' ? len += 1: len, 0)
+    (len, item) => item.status === 'active' ? len += 1: len, 0)
   
 
   return (
     <S.Wrapper>
       <TodoItem editable onCreate={createItemEv}/>
           <S.TodoItemsWrapper>
-              { filteredItems.length > 0 ?
+              {filteredItems.length > 0 ?
                     filteredItems.map(item => <TodoItem 
                         value={item.value}
                         checked={item.status === 'completed'}

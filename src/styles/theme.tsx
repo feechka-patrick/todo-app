@@ -1,8 +1,8 @@
 import {createGlobalStyle, ThemeProvider} from "styled-components"
-import { $themeMode } from "../model"
 import { useUnit } from "effector-react"
 import { PropsWithChildren } from "react"
 import { ITheme } from "./types"
+import { $themeMode } from "../utils/store/theme"
 
 export const theme = {
     box_shadow: '0px 0px 10px 0px rgba(0, 0, 0, 0.3)',
